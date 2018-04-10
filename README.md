@@ -9,7 +9,8 @@ slider:
      <input class="dupli-slider" type="range" slider-values="1,2,3,4,5,6,7" />
      <output class="slider-output"></output>
   </p>
-</form>```
+</form>
+```
 
 Use the `slider-values=""` to pass the values to the slider. Separate the values by using `~`.
 
