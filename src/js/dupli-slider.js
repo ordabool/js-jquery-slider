@@ -1,4 +1,4 @@
-export function run() {
+module.exports =  function run() {
 
   require('../css/dupli-slider.css');
   var $ = require('jquery');
