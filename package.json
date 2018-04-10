@@ -1,6 +1,6 @@
 {
   "name": "js-jquery-slider",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "description": "A slider component written with jquery",
   "main": "dist/slider.bundle.js",
   "scripts": {
