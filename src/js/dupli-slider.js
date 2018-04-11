@@ -1,4 +1,4 @@
-export class SliderManager {
+class SliderManager {
   constructor(){
   }
 
@@ -112,3 +112,5 @@ export class SliderManager {
     });
   };
 }
+
+export let sliderManager = new SliderManager();
