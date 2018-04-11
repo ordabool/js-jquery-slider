@@ -2,7 +2,7 @@ export class SliderManager {
   constructor(){
   }
 
-  function startSliders() {
+  startSliders() {
     require('../css/dupli-slider.css');
     var $ = require('jquery');
 
