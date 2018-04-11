@@ -3,7 +3,6 @@ class SliderManager {
   }
 
   startSliders() {
-    require('../css/dupli-slider.css');
     var $ = require('jquery');
 
     $(document).ready(function(){
@@ -114,3 +113,4 @@ class SliderManager {
 }
 
 export let sliderManager = new SliderManager();
+export let sliderStyle = require('../css/dupli-slider.css');
