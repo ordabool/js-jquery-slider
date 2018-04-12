@@ -42,6 +42,9 @@ class SliderManager {
 
       var dupliSlider, newPoint, newPlace, offset;
       var setupSlider = function($slider){
+        console.log("dupliSlider: " + dupliSlider);
+        console.log("slider: " + slider);
+        console.log("$slider: " + $slider);
         width = dupliSlider.width();
         var valuesString = dupliSlider.attr("slider-values");
         var values = valuesString.split('~');

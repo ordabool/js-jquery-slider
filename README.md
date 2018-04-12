@@ -3,10 +3,10 @@ After including the JavaScript component, use the following structure to show a
 slider:
 
 ```html
-<form id="js-duplitrade-slider">
+<form class="js-duplitrade-slider">
    <p class="dupli-slider-container">
      <span class="dupli-slider-highlight"></span>
-     <input class="dupli-slider" type="range" slider-values="1,2,3,4,5,6,7" />
+     <input class="dupli-slider" type="range" slider-values="1~2~3~4~5~6~7" />
      <output class="slider-output"></output>
   </p>
 </form>
