@@ -3,11 +3,11 @@
 2 info using npm@2.15.5
 3 info using node@v4.4.5
 4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
-5 info prebuild js-jquery-slider@1.0.31
-6 info build js-jquery-slider@1.0.31
+5 info prebuild js-jquery-slider@1.0.42
+6 info build js-jquery-slider@1.0.42
 7 verbose unsafe-perm in lifecycle true
-8 info js-jquery-slider@1.0.31 Failed to exec build script
-9 verbose stack Error: js-jquery-slider@1.0.31 build: `webpack`
+8 info js-jquery-slider@1.0.42 Failed to exec build script
+9 verbose stack Error: js-jquery-slider@1.0.42 build: `webpack`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/home/or/n/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
 9 verbose stack     at emitTwo (events.js:87:13)
@@ -17,16 +17,16 @@
 9 verbose stack     at ChildProcess.emit (events.js:172:7)
 9 verbose stack     at maybeClose (internal/child_process.js:827:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
-10 verbose pkgid js-jquery-slider@1.0.31
+10 verbose pkgid js-jquery-slider@1.0.42
 11 verbose cwd /home/or/code/js-jquery-slider
 12 error Linux 3.10.0-514.el7.x86_64
 13 error argv "/home/or/n/bin/node" "/home/or/n/bin/npm" "run" "build"
 14 error node v4.4.5
 15 error npm  v2.15.5
 16 error code ELIFECYCLE
-17 error js-jquery-slider@1.0.31 build: `webpack`
+17 error js-jquery-slider@1.0.42 build: `webpack`
 17 error Exit status 1
-18 error Failed at the js-jquery-slider@1.0.31 build script 'webpack'.
+18 error Failed at the js-jquery-slider@1.0.42 build script 'webpack'.
 18 error This is most likely a problem with the js-jquery-slider package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
