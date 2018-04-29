@@ -10,46 +10,46 @@ class SliderManager {
         // Initialize all sliders on page
         var sliders = $(".slider");
         var outputs = $(".sliderOutput");
-        var dupliSlider, valuesString, values, length;
+        var slider, valuesString, values, length;
 
         for (var i = 0; i<sliders.length; i++){
-          dupliSlider = sliders[i];
-          valuesString = dupliSlider.getAttribute("sliderValues");
+          slider = sliders[i];
+          valuesString = slider.getAttribute("sliderValues");
           values = valuesString.split('~');
 
 
-          var entryValue = dupliSlider.getAttribute("sliderEntryValue");
+          var entryValue = slider.getAttribute("sliderEntryValue");
           
           if (values.length <= 1) {
             $(".sliderDiv")[i].setAttribute("class", "sliderDiv sliderDisabled");
           } else {
             if (entryValue != null) {
               var entryIndex = values.indexOf(entryValue);
-              dupliSlider.value = entryIndex;
-              dupliSlider.setAttribute("sliderCurrentValue",values[entryIndex]);
-              dupliSlider.setAttribute("sliderCurrentIndex",entryIndex);
+              slider.value = entryIndex;
+              slider.setAttribute("sliderCurrentValue",values[entryIndex]);
+              slider.setAttribute("sliderCurrentIndex",entryIndex);
             } else {
-              dupliSlider.value = 0;
-              dupliSlider.setAttribute("sliderCurrentValue",values[0]);
-              dupliSlider.setAttribute("sliderCurrentIndex",0);
+              slider.value = 0;
+              slider.setAttribute("sliderCurrentValue",values[0]);
+              slider.setAttribute("sliderCurrentIndex",0);
             }
           }
           length = values.length - 1;
-          dupliSlider.setAttribute("max",length);
-          dupliSlider.setAttribute("min",0);
-          dupliSlider.setAttribute("step",1);
+          slider.setAttribute("max",length);
+          slider.setAttribute("min",0);
+          slider.setAttribute("step",1);
           outputs[i].innerHTML = "<strong>" + values[0] + "</strong>";
         }
 
-      var dupliSlider, newPoint, newPlace, offset;
+      var slider, newPoint, newPlace, offset;
       var setupSlider = function($slider){
-        var width = dupliSlider.width();
-        var valuesString = dupliSlider.attr("sliderValues");
+        var width = slider.width();
+        var valuesString = slider.attr("sliderValues");
         var values = valuesString.split('~');
         length = values.length - 1;
-        dupliSlider.attr("max",length);
+        slider.attr("max",length);
         if (values.length > 1){
-          newPoint = (dupliSlider.val() - dupliSlider.attr("min")) / (length - dupliSlider.attr("min"));
+          newPoint = (slider.val() - slider.attr("min")) / (length - slider.attr("min"));
           offset = -6.5;
           // Prevent bubble from going beyond left or right (unsupported browsers)
           if (newPoint < 0) {
@@ -60,15 +60,15 @@ class SliderManager {
             newPlace = width * newPoint + offset; offset -= newPoint;
           }
 
-          var sliderHighlight = dupliSlider.prev("span");
+          var sliderHighlight = slider.prev("span");
           sliderHighlight.width(newPlace+5.8);
 
-          var sliderOutput = dupliSlider.next("output");
+          var sliderOutput = slider.next("output");
 
-          sliderOutput.html('<strong>'+values[dupliSlider.val()]+'</strong>');
+          sliderOutput.html('<strong>'+values[slider.val()]+'</strong>');
 
-          dupliSlider.attr("sliderCurrentValue",values[dupliSlider.val()]);
-          dupliSlider.attr("sliderCurrentIndex",dupliSlider.val());
+          slider.attr("sliderCurrentValue",values[slider.val()]);
+          slider.attr("sliderCurrentIndex",slider.val());
 
           if(newPoint <= .08){
             sliderOutput
@@ -97,19 +97,19 @@ class SliderManager {
 
       // Select all range inputs, watch for change
       $(".slider").change(function() {
-        dupliSlider = $(this);
-        setupSlider(dupliSlider);
+        slider = $(this);
+        setupSlider(slider);
       })
       .trigger('change');	
       $(".slider").on('input', function() {
-        dupliSlider = $(this);
-        setupSlider(dupliSlider);
+        slider = $(this);
+        setupSlider(slider);
       })
       .trigger('change');	
     $( window ).resize(function() {
       $(".slider").each(function() {
-        dupliSlider = $(this);
-        setupSlider(dupliSlider);
+        slider = $(this);
+        setupSlider(slider);
       })
         .trigger('change');
     });
@@ -120,46 +120,46 @@ class SliderManager {
     let $ = require('jquery');
 
     // Initialize all sliders on page
-    let dupliSlider, valuesString, values, length;
+    let slider, valuesString, values, length;
 
-    dupliSlider = $("#"+sliderId);
-    let sliderOutput = dupliSlider.next(".sliderOutput");
-    valuesString = dupliSlider.attr("sliderValues");
+    slider = $("#"+sliderId);
+    let sliderOutput = slider.next("output");
+    valuesString = slider.attr("sliderValues");
     values = valuesString.split('~');
-    var entryValue = dupliSlider.attr("sliderEntryValue");
+    var entryValue = slider.attr("sliderEntryValue");
 
     if (values.length <= 1) {
     length = values.length - 1;
-      // dupliSlider.prev(".sliderDiv").addClass("sliderDisabled");
-      dupliSlider.closest(".sliderDiv").addClass("sliderDisabled");
+      // slider.prev(".sliderDiv").addClass("sliderDisabled");
+      slider.closest(".sliderDiv").addClass("sliderDisabled");
 
     } else {
       if (entryValue != null) {
         var entryIndex = values.indexOf(entryValue);
-        dupliSlider.val(entryIndex);
-        dupliSlider.attr("sliderCurrentValue",values[entryIndex]);
-        dupliSlider.attr("sliderCurrentIndex",entryIndex);
+        slider.val(entryIndex);
+        slider.attr("sliderCurrentValue",values[entryIndex]);
+        slider.attr("sliderCurrentIndex",entryIndex);
       } else {
-        dupliSlider.val(0);
-        dupliSlider.attr("sliderCurrentValue",values[0]);
-        dupliSlider.attr("sliderCurrentIndex",0);
+        slider.val(0);
+        slider.attr("sliderCurrentValue",values[0]);
+        slider.attr("sliderCurrentIndex",0);
       }
     }
     length = values.length - 1;
-    dupliSlider.attr("max",length);
-    dupliSlider.attr("min",0);
-    dupliSlider.attr("step",1);
+    slider.attr("max",length);
+    slider.attr("min",0);
+    slider.attr("step",1);
     sliderOutput.html("<strong>" + values[0] + "</strong>");
 
     let newPoint, newPlace, offset;
     function setupSlider($slider){
-      var width = dupliSlider.width();
-      var valuesString = dupliSlider.attr("sliderValues");
+      var width = slider.width();
+      var valuesString = slider.attr("sliderValues");
       var values = valuesString.split('~');
       length = values.length - 1;
-      dupliSlider.attr("max",length);
+      slider.attr("max",length);
       if (values.length > 1){
-        newPoint = (dupliSlider.val() - dupliSlider.attr("min")) / (length - dupliSlider.attr("min"));
+        newPoint = (slider.val() - slider.attr("min")) / (length - slider.attr("min"));
         offset = -6.5;
         // Prevent bubble from going beyond left or right (unsupported browsers)
         if (newPoint < 0) {
@@ -170,13 +170,13 @@ class SliderManager {
           newPlace = width * newPoint + offset; offset -= newPoint;
         }
 
-        var sliderHighlight = dupliSlider.prev("span");
+        var sliderHighlight = slider.prev("span");
         sliderHighlight.width(newPlace+5.8);
 
-        sliderOutput.html('<strong>'+values[dupliSlider.val()]+'</strong>');
+        sliderOutput.html('<strong>'+values[slider.val()]+'</strong>');
 
-        dupliSlider.attr("sliderCurrentValue",values[dupliSlider.val()]);
-        dupliSlider.attr("sliderCurrentIndex",dupliSlider.val());
+        slider.attr("sliderCurrentValue",values[slider.val()]);
+        slider.attr("sliderCurrentIndex",slider.val());
 
         if(newPoint <= .08){
           sliderOutput
@@ -204,22 +204,22 @@ class SliderManager {
     }
 
     // Select all range inputs, watch for change
-    dupliSlider.change(function() {
-      dupliSlider = $(this);
-      setupSlider(dupliSlider);
+    slider.change(function() {
+      slider = $(this);
+      setupSlider(slider);
     })
       .trigger('change');	
 
-    dupliSlider.on('input', function() {
-      dupliSlider = $(this);
-      setupSlider(dupliSlider);
+    slider.on('input', function() {
+      slider = $(this);
+      setupSlider(slider);
     })
       .trigger('change');
 
     $( window ).resize(function() {
       $(".slider").each(function() {
-        dupliSlider = $(this);
-        setupSlider(dupliSlider);
+        slider = $(this);
+        setupSlider(slider);
       })
         .trigger('change');
     });

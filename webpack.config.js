@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/js/dupli-slider.js',
+  entry: './src/js/slider.js',
   output: {
     path: __dirname + '/dist',
     filename: 'slider.bundle.js',
