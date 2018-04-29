@@ -227,4 +227,3 @@ class SliderManager {
 }
 
 export let sliderManager = new SliderManager();
-export let sliderStyle = require('../css/blue-dupli-slider.css');
