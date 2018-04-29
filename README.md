@@ -1,19 +1,42 @@
+# Include
+To use the package, get the `sliderManager` object by using:
+```javascript
+const { sliderManager } = require('js-jquery-slider')
+```
+
+After including the `sliderManager` run either functions:
+```javascript
+sliderManager.startSliders() //To run all sliders on page
+sliderManager.startSliderById(id) //To run only a specific slider
+```
+
+### Styles
+The slider is completely hackable, meaning that you can implement your own
+design.
+
+If you want however, there are 2 styles inclueded in the package: `blueSlider`
+and `greenSlider`.
+
+Include them from the dist/styles/ folder as so:
+```javascript
+import styles from 'js-jquery-slider/dist/styles/blueSlider.css';
+```
+
 # Usage
-After including the JavaScript component, use the following structure to show a
+After including the package, use the following structure to show a
 slider:
 
 ```html
-<form class="js-duplitrade-slider">
-   <p class="dupli-slider-container">
-     <span class="dupli-slider-highlight"></span>
-     <input class="dupli-slider" type="range" slider-values="1~2~3~4~5~6~7" />
-     <output class="slider-output"></output>
+<div class="sliderDiv">
+   <p class="sliderContainer">
+     <span class="sliderHighlight"></span>
+     <input class="slider" type="range" sliderValues="1~2~3~4~5~6~7"
+     sliderEntryValue="3" />
+     <output class="sliderOutput"></output>
   </p>
-</form>
+</div>
 ```
 
-Use the `slider-values=""` to pass the values to the slider. Separate the values by using `~`.
+Use the `sliderValues=""` to pass the values to the slider, and `sliderEntryValue=""` to choose the default value. Separate the values by using `~`.
 
-The input element will have 2 attributes you can use: **current-index** and **current-value**.
-
-**Tip:** use `Document.getElementsByClassName('dupli-slider')` to get an array of all the sliders in the page.
+The input element will have 2 attributes you can use: **sliderCurrentIndex** and **sliderCurrentValue**.

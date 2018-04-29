@@ -8,30 +8,30 @@ class SliderManager {
     $(document).ready(function(){
 
         // Initialize all sliders on page
-        var dupliSliders = $(".dupli-slider");
-        var outputs = $(".slider-output");
+        var sliders = $(".slider");
+        var outputs = $(".sliderOutput");
         var dupliSlider, valuesString, values, length;
 
-        for (var i = 0; i<dupliSliders.length; i++){
-          dupliSlider = dupliSliders[i];
-          valuesString = dupliSlider.getAttribute("slider-values");
+        for (var i = 0; i<sliders.length; i++){
+          dupliSlider = sliders[i];
+          valuesString = dupliSlider.getAttribute("sliderValues");
           values = valuesString.split('~');
 
 
-          var entryValue = dupliSlider.getAttribute("entry-value");
+          var entryValue = dupliSlider.getAttribute("sliderEntryValue");
           
           if (values.length <= 1) {
-            $(".js-duplitrade-slider")[i].setAttribute("class", "js-duplitrade-slider slider-disabled");
+            $(".sliderDiv")[i].setAttribute("class", "sliderDiv sliderDisabled");
           } else {
             if (entryValue != null) {
               var entryIndex = values.indexOf(entryValue);
               dupliSlider.value = entryIndex;
-              dupliSlider.setAttribute("current-value",values[entryIndex]);
-              dupliSlider.setAttribute("current-index",entryIndex);
+              dupliSlider.setAttribute("sliderCurrentValue",values[entryIndex]);
+              dupliSlider.setAttribute("sliderCurrentIndex",entryIndex);
             } else {
               dupliSlider.value = 0;
-              dupliSlider.setAttribute("current-value",values[0]);
-              dupliSlider.setAttribute("current-index",0);
+              dupliSlider.setAttribute("sliderCurrentValue",values[0]);
+              dupliSlider.setAttribute("sliderCurrentIndex",0);
             }
           }
           length = values.length - 1;
@@ -44,7 +44,7 @@ class SliderManager {
       var dupliSlider, newPoint, newPlace, offset;
       var setupSlider = function($slider){
         var width = dupliSlider.width();
-        var valuesString = dupliSlider.attr("slider-values");
+        var valuesString = dupliSlider.attr("sliderValues");
         var values = valuesString.split('~');
         length = values.length - 1;
         dupliSlider.attr("max",length);
@@ -67,8 +67,8 @@ class SliderManager {
 
           sliderOutput.html('<strong>'+values[dupliSlider.val()]+'</strong>');
 
-          dupliSlider.attr("current-value",values[dupliSlider.val()]);
-          dupliSlider.attr("current-index",dupliSlider.val());
+          dupliSlider.attr("sliderCurrentValue",values[dupliSlider.val()]);
+          dupliSlider.attr("sliderCurrentIndex",dupliSlider.val());
 
           if(newPoint <= .08){
             sliderOutput
@@ -96,18 +96,18 @@ class SliderManager {
       }
 
       // Select all range inputs, watch for change
-      $(".dupli-slider").change(function() {
+      $(".slider").change(function() {
         dupliSlider = $(this);
         setupSlider(dupliSlider);
       })
       .trigger('change');	
-      $(".dupli-slider").on('input', function() {
+      $(".slider").on('input', function() {
         dupliSlider = $(this);
         setupSlider(dupliSlider);
       })
       .trigger('change');	
     $( window ).resize(function() {
-      $(".dupli-slider").each(function() {
+      $(".slider").each(function() {
         dupliSlider = $(this);
         setupSlider(dupliSlider);
       })
@@ -123,26 +123,26 @@ class SliderManager {
     let dupliSlider, valuesString, values, length;
 
     dupliSlider = $("#"+sliderId);
-    let sliderOutput = dupliSlider.next(".slider-output");
-    valuesString = dupliSlider.attr("slider-values");
+    let sliderOutput = dupliSlider.next(".sliderOutput");
+    valuesString = dupliSlider.attr("sliderValues");
     values = valuesString.split('~');
-    var entryValue = dupliSlider.attr("entry-value");
+    var entryValue = dupliSlider.attr("sliderEntryValue");
 
     if (values.length <= 1) {
     length = values.length - 1;
-      // dupliSlider.prev(".js-duplitrade-slider").addClass("slider-disabled");
-      dupliSlider.closest(".js-duplitrade-slider").addClass("slider-disabled");
+      // dupliSlider.prev(".sliderDiv").addClass("sliderDisabled");
+      dupliSlider.closest(".sliderDiv").addClass("sliderDisabled");
 
     } else {
       if (entryValue != null) {
         var entryIndex = values.indexOf(entryValue);
         dupliSlider.val(entryIndex);
-        dupliSlider.attr("current-value",values[entryIndex]);
-        dupliSlider.attr("current-index",entryIndex);
+        dupliSlider.attr("sliderCurrentValue",values[entryIndex]);
+        dupliSlider.attr("sliderCurrentIndex",entryIndex);
       } else {
         dupliSlider.val(0);
-        dupliSlider.attr("current-value",values[0]);
-        dupliSlider.attr("current-index",0);
+        dupliSlider.attr("sliderCurrentValue",values[0]);
+        dupliSlider.attr("sliderCurrentIndex",0);
       }
     }
     length = values.length - 1;
@@ -154,7 +154,7 @@ class SliderManager {
     let newPoint, newPlace, offset;
     function setupSlider($slider){
       var width = dupliSlider.width();
-      var valuesString = dupliSlider.attr("slider-values");
+      var valuesString = dupliSlider.attr("sliderValues");
       var values = valuesString.split('~');
       length = values.length - 1;
       dupliSlider.attr("max",length);
@@ -175,8 +175,8 @@ class SliderManager {
 
         sliderOutput.html('<strong>'+values[dupliSlider.val()]+'</strong>');
 
-        dupliSlider.attr("current-value",values[dupliSlider.val()]);
-        dupliSlider.attr("current-index",dupliSlider.val());
+        dupliSlider.attr("sliderCurrentValue",values[dupliSlider.val()]);
+        dupliSlider.attr("sliderCurrentIndex",dupliSlider.val());
 
         if(newPoint <= .08){
           sliderOutput
@@ -217,7 +217,7 @@ class SliderManager {
       .trigger('change');
 
     $( window ).resize(function() {
-      $(".dupli-slider").each(function() {
+      $(".slider").each(function() {
         dupliSlider = $(this);
         setupSlider(dupliSlider);
       })
